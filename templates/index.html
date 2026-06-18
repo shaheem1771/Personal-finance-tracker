@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <main>
+      <h1>Expenses</h1>
+      {% if expenses %}
+      <table>
+        <thead><tr><th>Date</th><th>Category</th><th>Amount</th><th>Note</th></tr></thead>
+        <tbody>
+        {% for e in expenses %}
+          <tr>
+            <td>{{ e.get('date','') }}</td>
+            <td>{{ e.get('category','') }}</td>
+            <td>{{ e.get('amount','') }}</td>
+            <td>{{ e.get('note','') }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>No expenses yet.</p>
+      {% endif %}
+    </main>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
