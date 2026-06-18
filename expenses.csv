@@ -1,2 +1,5 @@
 date,category,amount,note
-2026-06-18,groceries,23.45,example
+2026-06-18,groceries,23.45,weekly groceries
+2026-06-17,transport,4.20,bus fare
+2026-06-16,coffee,3.50,morning
+2026-06-15,utilities,45.00,monthly bill

@@ -1,11 +1,12 @@
 from flask import Flask, render_template, jsonify, request
+from flask_cors import CORS
 import csv
+from pathlib import Path
 import os
 from functools import lru_cache
 from decimal import Decimal, InvalidOperation
 from typing import List, Dict
 import threading
-import tempfile
 import logging
 
 logging.basicConfig(level=logging.INFO)
@@ -16,6 +17,7 @@ _write_lock = threading.Lock()
 
 def create_app(config=None):
     app = Flask(__name__, static_folder='static')
+    CORS(app)
     if config:
         app.config.update(config)
 
@@ -27,7 +29,7 @@ def create_app(config=None):
 
     @app.route('/api/expenses', methods=['GET', 'POST'])
     def api_expenses():
-        csv_path = app.config.get('EXPENSES_CSV', 'expenses.csv')
+        csv_path = Path(app.config.get('EXPENSES_CSV', 'expenses.csv'))
         if request.method == 'GET':
             return jsonify(load_expenses(csv_path))
 
@@ -37,15 +39,18 @@ def create_app(config=None):
         category = (data.get('category') or '').strip()
         note = (data.get('note') or '').strip()
         amount_raw = data.get('amount')
+        # basic validation
+        if not category or not amount_raw:
+            return jsonify({'error': 'missing fields'}), 400
         try:
             amount = float(Decimal(str(amount_raw)))
         except Exception:
             return jsonify({'error': 'invalid amount'}), 400
 
-        row = {'date': date, 'category': category, 'amount': f"{amount:.2f}", 'note': note}
+        row = {'date': date or '', 'category': category, 'amount': f"{amount:.2f}", 'note': note}
         try:
             append_expense(csv_path, row)
-        except Exception as e:
+        except Exception:
             logging.exception('Failed to append expense')
             return jsonify({'error': 'failed to save'}), 500
 
@@ -68,10 +73,11 @@ def load_expenses(path: str = 'expenses.csv') -> List[Dict]:
     Cached for fast repeated reads.
     """
     rows: List[Dict] = []
-    if not os.path.exists(path):
+    p = Path(path)
+    if not p.exists():
         return rows
 
-    with open(path, newline='') as f:
+    with p.open(newline='') as f:
         reader = csv.DictReader(f)
         for r in reader:
             amt = r.get('amount', '')
@@ -96,17 +102,17 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=os.environ.get('FLASK_DEBUG', '1') == '1')
 
 
-def append_expense(path: str, row: Dict[str, str]) -> None:
+def append_expense(path: Path, row: Dict[str, str]) -> None:
     """Append a row to CSV safely using a lock.
 
     Row should contain keys: date, category, amount, note (all strings).
     """
     with _write_lock:
-        dirpath = os.path.dirname(path) or '.'
-        os.makedirs(dirpath, exist_ok=True)
-        file_exists = os.path.exists(path)
+        p: Path = Path(path)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        file_exists = p.exists()
         # open in append mode; write header if missing
-        with open(path, 'a', newline='') as wf:
+        with p.open('a', newline='') as wf:
             writer = csv.DictWriter(wf, fieldnames=['date', 'category', 'amount', 'note'])
             if not file_exists:
                 writer.writeheader()
