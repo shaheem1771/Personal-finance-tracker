@@ -29,7 +29,7 @@ KANAK focuses on delivering a clean user experience with interactive charts, tra
 
 ### 🎥 Demo Video
 
-https://github.com/user-attachments/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+https://github.com/user-attachments/assets/templates/f24df56a-fa5d-431e-b5fc-849d416c1d49.mov
 
 ### 📷 Screenshots
 
