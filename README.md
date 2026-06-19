@@ -1,4 +1,4 @@
-# KANANK (കണക്ക്)
+# KANANK
 
 Track every rupee, master your money.
 
