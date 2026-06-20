@@ -33,9 +33,26 @@ https://github.com/user-attachments/assets/f24df56a-fa5d-431e-b5fc-849d416c1d49.
 
 ### 📷 Screenshots
 
-- ![Dashboard](templates/IMG_3095.jpeg)
-- ![Analytics](templates/IMG_3096.jpeg)
-- ![Transactions](templates/IMG_3097.jpeg)
+## 📸 Screenshots
+
+<table>
+<tr>
+<td align="center">
+<img src="templates/IMG_3095.jpeg" width="250"><br>
+<b>Dashboard</b>
+</td>
+
+<td align="center">
+<img src="templates/IMG_3096.jpeg" width="250"><br>
+<b>Analytics</b>
+</td>
+
+<td align="center">
+<img src="templates/IMG_3097.jpeg" width="250"><br>
+<b>Transactions</b>
+</td>
+</tr>
+</table>
 
 ---
 
