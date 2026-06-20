@@ -27,30 +27,38 @@ KANAK focuses on delivering a clean user experience with interactive charts, tra
 
 ## Preview
 
-### 🎥 Demo Video
+### Demo Video
 
 https://github.com/user-attachments/assets/f24df56a-fa5d-431e-b5fc-849d416c1d49.mov
 
-### 📷 Screenshots
-
-## 📸 Screenshots
+## Screenshots
 
 <table>
 <tr>
 <td align="center">
-<img src="templates/IMG_3095.jpeg" width="250"><br>
-<b>Dashboard</b>
+<img src="templates/IMG_3095.jpeg" width="450">
+
+**Dashboard**
+
+Track income, expenses, and account balance from a single view.
 </td>
 
 <td align="center">
-<img src="templates/IMG_3096.jpeg" width="250"><br>
-<b>Analytics</b>
+<img src="templates/IMG_3096.jpeg" width="450">
+
+**Analytics**
+
+Visualize spending patterns with category-wise charts and insights.
 </td>
 
 <td align="center">
-<img src="templates/IMG_3097.jpeg" width="250"><br>
-<b>Transactions</b>
+<img src="templates/IMG_3097.jpeg" width="450">
+
+**Transactions**
+
+Manage and review transaction history with detailed records.
 </td>
+
 </tr>
 </table>
 
