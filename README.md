@@ -40,7 +40,6 @@ https://github.com/user-attachments/assets/f24df56a-fa5d-431e-b5fc-849d416c1d49.
 
 **Dashboard**
 
-Track income, expenses, and account balance from a single view.
 </td>
 
 <td align="center">
@@ -48,7 +47,7 @@ Track income, expenses, and account balance from a single view.
 
 **Analytics**
 
-Visualize spending patterns with category-wise charts and insights.
+
 </td>
 
 <td align="center">
@@ -56,7 +55,7 @@ Visualize spending patterns with category-wise charts and insights.
 
 **Transactions**
 
-Manage and review transaction history with detailed records.
+
 </td>
 
 </tr>
