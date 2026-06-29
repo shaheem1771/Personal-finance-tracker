@@ -2,7 +2,7 @@
 
 > Track every rupee. Master your money.
 
-KANAK is a modern full-stack personal finance tracker built with React, TypeScript, Express, and MongoDB. It helps users manage income and expenses, visualize spending patterns, and gain better financial insights through an elegant and responsive interface.
+KANAK is a modern full-stack personal finance tracker  built with React, TypeScript, Express, and MongoDB. It helps users manage income and expenses, visualize spending patterns, and gain better financial insights through an elegant and responsive interface.
 
 ---
 
